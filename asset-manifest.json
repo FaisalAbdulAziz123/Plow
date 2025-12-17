@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/FaisalAbdulAziz123/Plow.git/static/css/main.68179e20.css",
-    "main.js": "/FaisalAbdulAziz123/Plow.git/static/js/main.23639fad.js",
-    "static/js/453.a118046e.chunk.js": "/FaisalAbdulAziz123/Plow.git/static/js/453.a118046e.chunk.js",
-    "static/media/logo2.png": "/FaisalAbdulAziz123/Plow.git/static/media/logo2.aa8190d1936f9f2ab282.png",
-    "index.html": "/FaisalAbdulAziz123/Plow.git/index.html",
-    "main.68179e20.css.map": "/FaisalAbdulAziz123/Plow.git/static/css/main.68179e20.css.map",
-    "main.23639fad.js.map": "/FaisalAbdulAziz123/Plow.git/static/js/main.23639fad.js.map",
-    "453.a118046e.chunk.js.map": "/FaisalAbdulAziz123/Plow.git/static/js/453.a118046e.chunk.js.map"
+    "main.css": "/Plow/static/css/main.68179e20.css",
+    "main.js": "/Plow/static/js/main.5f918b28.js",
+    "static/js/453.a118046e.chunk.js": "/Plow/static/js/453.a118046e.chunk.js",
+    "static/media/logo2.png": "/Plow/static/media/logo2.aa8190d1936f9f2ab282.png",
+    "index.html": "/Plow/index.html",
+    "main.68179e20.css.map": "/Plow/static/css/main.68179e20.css.map",
+    "main.5f918b28.js.map": "/Plow/static/js/main.5f918b28.js.map",
+    "453.a118046e.chunk.js.map": "/Plow/static/js/453.a118046e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.68179e20.css",
-    "static/js/main.23639fad.js"
+    "static/js/main.5f918b28.js"
   ]
 }
