@@ -5,12 +5,15 @@ import {
   AirplaneTilt, HandWaving, Hamburger, UserCircle 
 } from "@phosphor-icons/react";
 
+// Pastikan logo.jpeg berada di dalam folder src/assets/
+import logoImg from './assets/logo2.png'; 
+
 function App() {
   // --- STATE ---
   const [selectedStyle, setSelectedStyle] = useState("Presenter Story");
   const [preview, setPreview] = useState(null);
-  const [modelPreview, setModelPreview] = useState(null); // State baru untuk Foto Model
-  const [bgPreview, setBgPreview] = useState(null);       // State baru untuk Background
+  const [modelPreview, setModelPreview] = useState(null); 
+  const [bgPreview, setBgPreview] = useState(null);       
   const [loading, setLoading] = useState(false);
   const [showOutput, setShowOutput] = useState(false);
   const [description, setDescription] = useState("");
@@ -52,6 +55,7 @@ function App() {
     setLoading(true);
     setShowOutput(false);
 
+    // Simulasi Proses AI
     setTimeout(() => {
       const firstWord = description.split(',')[0] || "Produk";
       const result = `// Hook (0-3s)
@@ -84,8 +88,8 @@ Gaya ${selectedStyle} ini bakal bikin audiens kamu betah nonton."
       <header className="w-full border-b border-gray-100 bg-white/80 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <SquaresFour size={28} weight="fill" />
-            <span className="font-bold text-lg tracking-tight">PLOW AFFILIATE</span>
+            {/* Logo Image */}
+            <img src={logoImg} alt="PLOW AI Logo" className="h-[105px] w-auto object-contain" />
           </div>
           <div className="flex items-center gap-3 bg-gray-50 px-3 py-1.5 rounded-full border border-gray-100">
             <Lightning size={16} weight="fill" className="text-blue-500" />
@@ -125,7 +129,7 @@ Gaya ${selectedStyle} ini bakal bikin audiens kamu betah nonton."
                   <div className="w-14 h-14 bg-white rounded-full shadow-sm flex items-center justify-center mb-4 border border-gray-100 group-hover:scale-110 transition-transform">
                     <Cube size={28} className="text-gray-700" />
                   </div>
-                  <span className="font-semibold">Product Anchor</span>
+                  <span className="font-semibold text-gray-900">Product Anchor</span>
                   <span className="text-sm text-gray-400 mt-1">Klik untuk upload gambar</span>
                 </div>
               )}
@@ -140,7 +144,7 @@ Gaya ${selectedStyle} ini bakal bikin audiens kamu betah nonton."
                 ) : (
                   <>
                     <User size={20} className="text-gray-400 mb-2" />
-                    <span className="text-xs font-medium text-gray-500">Foto Model</span>
+                    <span className="text-xs font-medium text-gray-700">Foto Model</span>
                   </>
                 )}
                 <input type="file" onChange={(e) => handleFileChange(e, 'model')} className="absolute inset-0 opacity-0 cursor-pointer" />
@@ -153,7 +157,7 @@ Gaya ${selectedStyle} ini bakal bikin audiens kamu betah nonton."
                 ) : (
                   <>
                     <ImageIcon size={20} className="text-gray-400 mb-2" />
-                    <span className="text-xs font-medium text-gray-500">Background</span>
+                    <span className="text-xs font-medium text-gray-700">Background</span>
                   </>
                 )}
                 <input type="file" onChange={(e) => handleFileChange(e, 'bg')} className="absolute inset-0 opacity-0 cursor-pointer" />
@@ -168,7 +172,7 @@ Gaya ${selectedStyle} ini bakal bikin audiens kamu betah nonton."
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-xs font-semibold text-gray-500 uppercase">Bahasa</label>
-                    <select className="w-full bg-gray-50 border border-gray-200 text-sm rounded-xl p-3 outline-none">
+                    <select className="w-full bg-gray-50 border border-gray-200 text-sm rounded-xl p-3 outline-none cursor-pointer">
                       <option>Bahasa Indonesia</option>
                       <option>English</option>
                     </select>
@@ -178,7 +182,7 @@ Gaya ${selectedStyle} ini bakal bikin audiens kamu betah nonton."
                     <select 
                       value={tone} 
                       onChange={(e) => setTone(e.target.value)}
-                      className="w-full bg-gray-50 border border-gray-200 text-sm rounded-xl p-3 outline-none"
+                      className="w-full bg-gray-50 border border-gray-200 text-sm rounded-xl p-3 outline-none cursor-pointer"
                     >
                       <option>Jelas & To-The-Point</option>
                       <option>Storytelling Emosional</option>
@@ -240,7 +244,7 @@ Gaya ${selectedStyle} ini bakal bikin audiens kamu betah nonton."
           </button>
         </div>
 
-        {/* OUTPUT */}
+        {/* OUTPUT RESULT */}
         {showOutput && (
           <div ref={outputRef} className="max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-10 duration-700">
             <div className="bg-white rounded-3xl border border-gray-100 shadow-2xl overflow-hidden mb-20">
@@ -255,16 +259,16 @@ Gaya ${selectedStyle} ini bakal bikin audiens kamu betah nonton."
                     <Robot size={22} weight="fill" className="text-blue-600" />
                   </div>
                   <div className="w-full space-y-4">
-                    <h3 className="text-lg font-bold">Hasil Naskah: {selectedStyle}</h3>
-                    <div className="bg-gray-50 p-6 rounded-xl border font-mono text-sm leading-relaxed whitespace-pre-wrap">
+                    <h3 className="text-lg font-bold text-gray-900">Hasil Naskah: {selectedStyle}</h3>
+                    <div className="bg-gray-50 p-6 rounded-xl border font-mono text-sm leading-relaxed whitespace-pre-wrap text-gray-700">
                       {outputContent}
                     </div>
                     <div className="flex gap-3">
-                      <button onClick={() => { navigator.clipboard.writeText(outputContent); alert('Disalin!'); }} className="flex items-center gap-2 px-4 py-2 border rounded-lg text-sm font-medium hover:bg-gray-50">
+                      <button onClick={() => { navigator.clipboard.writeText(outputContent); alert('Naskah berhasil disalin!'); }} className="flex items-center gap-2 px-4 py-2 border rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors">
                         <Copy size={18} /> Copy Script
                       </button>
-                      <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700">
-                        <Download size={18} /> Export
+                      <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors shadow-sm">
+                        <Download size={18} /> ExportAssets
                       </button>
                     </div>
                   </div>
